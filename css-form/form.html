@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="title" id="titulo-principal">Formulario</h1>    
+
+    <form class="card">
+      <div class="form-control">
+        <label>Nombre</label>
+        <input class="input" type="text" placeholder="Ingresa tu nombre" />
+      </div>
+
+      <div class="form-control">
+        <label>Email</label>
+        <input class="input" type="email" placeholder="Ingresa tu email" />
+      </div>
+
+      <div class="form-control">foprm
+        <label for="age" id="label-age">Edad</label>
+        <input class="input" type="number" placeholder="Ingresa tu edad" />
+      </div>
+
+      <div class="form-control">
+        <label for="role" id="label-role">Cual es tu profesión</label>
+        <select name="role" id="select-role">
+          <option value="0">Estudiante</option>
+          <option value="1">Licenciado</option>
+          <option value="2">Profesional</option>
+        </select>
+      </div>
+
+      <div class="form-control">
+        <label for="lang">Idioma</label>
+        <label for="lang-es">
+          <input type="radio" name="lang">Español</input>
+        </label>
+        <label for="lang-en">
+          <input type="radio" name="lang">Ingles</input>
+        </label>
+        <label for="lang-fr">
+          <input type="radio" name="lang">Frances</input>
+        </label>
+
+        <label for="lang-fr">
+          <input type="radio" name="lang">Aleman</input>
+        </label>
+
+      </div>
+
+      <button class="btn btn-primary">Enviar</button>
+      <button class="btn btn-secondary">Cancelar</button>
+    </form>
+  </body>
+</html>
