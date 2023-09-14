@@ -5,14 +5,32 @@ body {
 }
 
 .title {
-  color: cornflowerblue;
+  color: cornflowerblue !important;
 }
 
 .card {
   background-color: #fff;
   max-width: 500px;
   margin: 20px auto;
+  padding: 30px 20px;
   border-radius: 8px;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
-  padding: 30px 20px;
+}
+
+.form-control {
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-control .input-form-control,
+.form-control select {
+  border: 1px solid #777;
+  border-radius: 2px;
+  padding: 10px;
+  width: 90%;
 }
