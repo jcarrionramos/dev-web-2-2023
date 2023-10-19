@@ -6,7 +6,7 @@ import userRouter from "./routes/user.js";
 const port = 3000;
 
 app.use("", mainRouter);
-app.use("", userRouter);
+app.use("/user", userRouter);
 
 app.get("/health", (req, res) => {
   res.send("I'M ALIVE");

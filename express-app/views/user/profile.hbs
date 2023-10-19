@@ -1,0 +1,23 @@
+<h1>Ficha del usuario</h1>
+
+<h2>Información</h2>
+{{#if target}}
+  <ul>
+    <li>
+      Nombre:
+      {{target.name}}
+    </li>
+
+    <li>
+      Apellido:
+      {{target.lastname}}
+    </li>
+
+    <li>
+      Email:
+      {{target.email}}
+    </li>
+  </ul>
+{{else}}
+  <b>Usuario no encontrado</b>
+{{/if}}
