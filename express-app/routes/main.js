@@ -1,17 +1,15 @@
 import express from "express";
+import jwtAuthenticated from "../helpers/jwtAuthenticated";
+import getCurrentUser from "../helpers/getCurrentUser";
 
 const router = express.Router();
 
-router.get("/home", (req, res) => {
-  res.render("home");
-});
+router.get("/home", jwtAuthenticated, async (req, res) => {
+  const currentUser = await getCurrentUser(req);
 
-router.get("/register", (req, res) => {
-  res.render("register");
-});
+  console.log("currentUser", currentUser);
 
-router.get("/login", (req, res) => {
-  res.render("login");
+  res.render("home", { user: { name: currentUser.name } });
 });
 
 export default router;
