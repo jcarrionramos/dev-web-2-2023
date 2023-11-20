@@ -11,7 +11,7 @@ router.get("/create", (req, res) => {
 
 router.post("/create", (req, res) => {
   User.create(req.body);
-  res.render("user/create_user");
+  res.json({ success: true });
 });
 
 router.get("/login", (req, res) => {
@@ -22,7 +22,7 @@ router.post("/login", async (req, res) => {
   const currentUser = await User.findOne({ email: req.body.email });
 
   if (!currentUser || currentUser.password !== req.body.password) {
-    res.redirect("login");
+    res.json({ success: false, message: "usuario o constraseña incorrecto" });
     return;
   }
 
@@ -32,14 +32,15 @@ router.post("/login", async (req, res) => {
     expiresIn: "1h",
   });
 
-  res.cookie("jwt", signedJWT).redirect("list_all");
+  res.json({ success: true, jwt: signedJWT });
 });
 
 router.get("/list_all", jwtAuthenticated, async (req, res) => {
   const users = await User.find({});
-  res.render("user/list_all", {
-    allUsers: users.map((current) => {
+  res.json({
+    users: users.map((current) => {
       return {
+        id: current._id,
         name: current.name,
         lastName: current.lastName,
         email: current.email,

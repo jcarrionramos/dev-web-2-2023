@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import * as dotenv from "dotenv";
 
+const cors = require("cors");
+
 const app = express();
 
 dotenv.config();
@@ -20,6 +22,7 @@ app.engine(
 );
 
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 

@@ -1,19 +1,19 @@
 import jwt from "jsonwebtoken";
 
 const jwtAuthenticated = (req, res, next) => {
-  const cookie = req.cookies["jwt"];
+  const authJwt = req.headers.authorization;
 
-  if (!cookie) {
-    res.redirect("/user/login");
+  if (!authJwt) {
+    res.json({ success: false, message: "acceso denegado" });
     return;
   }
 
   try {
-    jwt.verify(cookie, process.env.JWT_PASSWORD);
+    jwt.verify(authJwt, process.env.JWT_PASSWORD);
     next();
   } catch (error) {
     console.log("error", error);
-    res.redirect("/user/login");
+    res.json({ success: false, message: "acceso denegado" });
   }
 };
 

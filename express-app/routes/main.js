@@ -6,10 +6,7 @@ const router = express.Router();
 
 router.get("/home", jwtAuthenticated, async (req, res) => {
   const currentUser = await getCurrentUser(req);
-
-  console.log("currentUser", currentUser);
-
-  res.render("home", { user: { name: currentUser.name } });
+  res.json({ user: currentUser });
 });
 
 export default router;
